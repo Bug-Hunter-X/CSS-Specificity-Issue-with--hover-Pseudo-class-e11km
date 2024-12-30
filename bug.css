@@ -1,0 +1,27 @@
+The following CSS code snippet demonstrates an issue where the expected behavior of `:hover` pseudo-class is not met due to improper specificity or unexpected inheritance:
+
+```css
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+
+.container:hover {
+  background-color: lightgreen;
+}
+
+.container a {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.container a:hover {
+  background-color: orange;
+}
+```
+
+When hovering over the `<a>` element, the expected outcome is that only the `<a>` element's background color changes to orange. However, the `:hover` on `.container` also activates, causing a conflict and changing the background color of the `.container` to lightgreen.
+This arises from specificity conflicts. The `:hover` on the anchor has lower specificity than the `.container:hover`, resulting in the latter taking precedence, unintentionally overriding the intended style.
