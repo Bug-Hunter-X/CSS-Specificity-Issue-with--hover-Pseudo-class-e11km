@@ -1,0 +1,26 @@
+The solution involves increasing the specificity of the child's `:hover` selector to override the parent's `:hover` style.
+
+```css
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+
+.container:hover {
+  background-color: lightgreen;
+}
+
+.container a {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.container a:hover {
+  background-color: orange !important; /* Increased Specificity */
+}
+```
+
+Alternatively, you could restructure the CSS to avoid the conflict. For instance, you might use separate classes for the hover states, or consider using different CSS properties to achieve the intended visual effects without relying on inheritance that could interfere with the hover effects.
